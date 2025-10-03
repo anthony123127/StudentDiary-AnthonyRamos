@@ -1,5 +1,5 @@
 using StudentDiary.Services.DTOs;
-
+// Define IDiaryService interface
 namespace StudentDiary.Services.Interfaces
 {
     public interface IDiaryService

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 //Add InitialCreate migration for User and DiaryEntry
+//  Configure unique indexes and cascade deletes
 #nullable disable
 
 namespace StudentDiary.Infrastructure.Migrations

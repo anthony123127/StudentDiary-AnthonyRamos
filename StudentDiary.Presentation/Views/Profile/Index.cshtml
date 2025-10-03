@@ -1,0 +1,74 @@
+@model StudentDiary.Services.DTOs.UserProfileDto
+
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Profile Picture</h5>
+            </div>
+            <div class="card-body text-center">
+                @if (!string.IsNullOrEmpty(Model.ProfilePicturePath))
+                {
+                    <img src="@Model.ProfilePicturePath" alt="Profile Picture" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;" />
+                }
+                else
+                {
+                    <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto" style="width: 150px; height: 150px;">
+                        <i class="fas fa-user fa-4x text-white"></i>
+                    </div>
+                }
+                
+                <form asp-action="UploadProfilePicture" method="post" enctype="multipart/form-data" class="mb-2">
+                    <div class="mb-2">
+                        <input type="file" name="profilePicture" class="form-control" accept="image/*" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">Upload Picture</button>
+                </form>
+                
+                @if (!string.IsNullOrEmpty(Model.ProfilePicturePath))
+                {
+                    <form asp-action="RemoveProfilePicture" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to remove your profile picture?')">
+                            Remove Picture
+                        </button>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5>Profile Information</h5>
+                <a asp-action="Edit" class="btn btn-primary">Edit Profile</a>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Username:</strong></div>
+                    <div class="col-sm-8">@Model.Username</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Email:</strong></div>
+                    <div class="col-sm-8">@Model.Email</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>First Name:</strong></div>
+                    <div class="col-sm-8">@(Model.FirstName ?? "Not provided")</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Last Name:</strong></div>
+                    <div class="col-sm-8">@(Model.LastName ?? "Not provided")</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-sm-4"><strong>Member Since:</strong></div>
+                    <div class="col-sm-8">@Model.DateCreated.ToString("MMMM dd, yyyy")</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -15,7 +15,14 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        // If user is logged in, redirect to diary
+        if (HttpContext.Session.GetInt32("UserId").HasValue)
+        {
+            return RedirectToAction("Index", "Diary");
+        }
+        
+        // Otherwise, redirect to login
+        return RedirectToAction("Login", "Auth");
     }
 
     public IActionResult Privacy()

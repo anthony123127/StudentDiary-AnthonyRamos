@@ -18,121 +18,121 @@ namespace StudentDiary.Infrastructure.Migrations
             modelBuilder.HasAnnotation("ProductVersion", "9.0.9");
 
             modelBuilder.Entity("StudentDiary.Infrastructure.Models.DiaryEntry", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("INTEGER");
 
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                b.Property<string>("Content")
+                    .IsRequired()
+                    .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValueSql("datetime('now')");
+                b.Property<DateTime>("CreatedDate")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("TEXT")
+                    .HasDefaultValueSql("datetime('now')");
 
-                    b.Property<DateTime>("LastModifiedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValueSql("datetime('now')");
+                b.Property<DateTime>("LastModifiedDate")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("TEXT")
+                    .HasDefaultValueSql("datetime('now')");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("TEXT");
+                b.Property<string>("Title")
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .HasColumnType("TEXT");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
+                b.Property<int>("UserId")
+                    .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                b.HasIndex("UserId");
 
-                    b.ToTable("DiaryEntries");
-                });
+                b.ToTable("DiaryEntries");
+            });
 
             modelBuilder.Entity("StudentDiary.Infrastructure.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT")
-                        .HasDefaultValueSql("datetime('now')");
+                b.Property<DateTime>("DateCreated")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("TEXT")
+                    .HasDefaultValueSql("datetime('now')");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                b.Property<string>("Email")
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .HasColumnType("TEXT");
 
-                    b.Property<int>("FailedLoginAttempts")
-                        .HasColumnType("INTEGER");
+                b.Property<int>("FailedLoginAttempts")
+                    .HasColumnType("INTEGER");
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("TEXT");
+                b.Property<string>("FirstName")
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("LastLoginDate")
-                        .HasColumnType("TEXT");
+                b.Property<DateTime>("LastLoginDate")
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("TEXT");
+                b.Property<string>("LastName")
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("LockoutEnd")
-                        .HasColumnType("TEXT");
+                b.Property<DateTime?>("LockoutEnd")
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                b.Property<string>("PasswordHash")
+                    .IsRequired()
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("PasswordResetToken")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                b.Property<string>("PasswordResetToken")
+                    .IsRequired()
+                    .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("PasswordResetTokenExpiry")
-                        .HasColumnType("TEXT");
+                b.Property<DateTime?>("PasswordResetTokenExpiry")
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("ProfilePicturePath")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                b.Property<string>("ProfilePicturePath")
+                    .IsRequired()
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("TEXT");
+                b.Property<string>("Username")
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("Email")
-                        .IsUnique();
+                b.HasIndex("Email")
+                    .IsUnique();
 
-                    b.HasIndex("Username")
-                        .IsUnique();
+                b.HasIndex("Username")
+                    .IsUnique();
 
-                    b.ToTable("Users");
-                });
+                b.ToTable("Users");
+            });
 
             modelBuilder.Entity("StudentDiary.Infrastructure.Models.DiaryEntry", b =>
-                {
-                    b.HasOne("StudentDiary.Infrastructure.Models.User", "User")
-                        .WithMany("DiaryEntries")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            {
+                b.HasOne("StudentDiary.Infrastructure.Models.User", "User")
+                    .WithMany("DiaryEntries")
+                    .HasForeignKey("UserId")
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .IsRequired();
 
-                    b.Navigation("User");
-                });
+                b.Navigation("User");
+            });
 
             modelBuilder.Entity("StudentDiary.Infrastructure.Models.User", b =>
-                {
-                    b.Navigation("DiaryEntries");
-                });
+            {
+                b.Navigation("DiaryEntries");
+            });
 #pragma warning restore 612, 618
         }
     }

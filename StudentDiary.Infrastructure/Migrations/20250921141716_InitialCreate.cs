@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-
+//Add InitialCreate migration for User and DiaryEntry
 #nullable disable
 
 namespace StudentDiary.Infrastructure.Migrations

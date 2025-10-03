@@ -18,12 +18,12 @@ namespace StudentDiary.Infrastructure.Models
         public string PasswordHash { get; set; }
 
         [StringLength(50)]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         [StringLength(50)]
-        public string LastName { get; set; }
+        public string? LastName { get; set; }
 
-        public string ProfilePicturePath { get; set; }
+        public string? ProfilePicturePath { get; set; }
 
         public DateTime DateCreated { get; set; }
 
@@ -33,7 +33,7 @@ namespace StudentDiary.Infrastructure.Models
 
         public DateTime? LockoutEnd { get; set; }
 
-        public string PasswordResetToken { get; set; }
+        public string? PasswordResetToken { get; set; }
 
         public DateTime? PasswordResetTokenExpiry { get; set; }
 

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentDiary.Infrastructure.Data;
 
@@ -10,9 +11,11 @@ using StudentDiary.Infrastructure.Data;
 namespace StudentDiary.Infrastructure.Migrations
 {
     [DbContext(typeof(StudentDiaryContext))]
-    partial class StudentDiaryContextModelSnapshot : ModelSnapshot
+    [Migration("20251003153042_FixNullableFields")]
+    partial class FixNullableFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.9");

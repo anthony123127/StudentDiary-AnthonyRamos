@@ -7,23 +7,23 @@ namespace StudentDiary.Services.DTOs
         [Required]
         [StringLength(200)]
         public string Title { get; set; }
-        
+
         [Required]
         public string Content { get; set; }
     }
-    
+
     public class UpdateDiaryEntryDto
     {
         public int Id { get; set; }
-        
+
         [Required]
         [StringLength(200)]
         public string Title { get; set; }
-        
+
         [Required]
         public string Content { get; set; }
     }
-    
+
     public class DiaryEntryDto
     {
         public int Id { get; set; }

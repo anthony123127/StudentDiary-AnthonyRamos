@@ -1,5 +1,5 @@
 using StudentDiary.Services.DTOs;
-
+// Define IAuthService interface 
 namespace StudentDiary.Services.Interfaces
 {
     public interface IAuthService

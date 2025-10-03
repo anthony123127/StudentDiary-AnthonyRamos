@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\StudentDiary.Infrastructure\StudentDiary.Infrastructure.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\StudentDiary.Infrastructure\StudentDiary.Infrastructure.csproj" />
+	</ItemGroup>
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
